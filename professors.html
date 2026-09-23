@@ -166,6 +166,20 @@
     line-height:1.45;
   }
   .cell.award p.desc strong{ color:var(--ink); }
+  .proj-strip{
+    display:flex;
+    gap:clamp(5px,.7vw,8px);
+    margin-top:auto;
+    padding-top:8px;
+  }
+  .proj-strip img{
+    flex:1;
+    min-width:0;
+    aspect-ratio:1;
+    object-fit:cover;
+    border-radius:8px;
+    border:1px solid var(--border);
+  }
 
   .cell.stat{ align-items:center; justify-content:center; text-align:center; gap:2px; }
   .cell.stat:nth-of-type(1){ grid-area:s1; background:rgba(238,241,255,.86); }
@@ -284,6 +298,13 @@
         Red Dot Winners, 2025
       </p>
       <p class="desc">Red Dot is a global product design competition, one of the most prestigious in the industry. <strong>Our students' work brought laurels to SCAD this year.</strong></p>
+      <div class="proj-strip">
+        <img src="proj-cheers.png" alt="Cheers">
+        <img src="proj-echo.png" alt="Echo">
+        <img src="proj-grove.png" alt="Grove">
+        <img src="proj-dari.png" alt="DARI">
+        <img src="proj-wordwizard.png" alt="Word Wizard">
+      </div>
     </div>
 
     <div class="cell award indigo">
