@@ -79,18 +79,27 @@
     gap:clamp(10px,1.6vh,18px);
   }
 
-  footer a{
-    display:inline-flex;
+  .flux-strip{
+    flex:none;
+    display:flex;
     align-items:center;
-    gap:7px;
-    font-size:13px;
-    font-weight:600;
-    color:var(--muted);
+    gap:clamp(8px,1vw,12px);
+    padding:clamp(7px,1vh,10px) clamp(12px,1.4vw,18px);
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:var(--accent-soft);
     text-decoration:none;
-    transition:color .2s ease;
+    color:var(--ink);
+    transition:border-color .2s ease, transform .2s ease;
+    width:fit-content;
+    margin:0 auto;
   }
-  footer a:hover, footer a:focus-visible{ color:var(--accent); }
-  footer svg{ width:15px; height:15px; }
+  .flux-strip:hover, .flux-strip:focus-visible{ border-color:var(--accent); transform:translateY(-2px); }
+  .flux-mark{ width:clamp(20px,2vw,26px); height:clamp(20px,2vw,26px); object-fit:contain; flex:none; }
+  .flux-copy{ display:flex; flex-direction:column; line-height:1.25; }
+  .flux-copy strong{ font-family:'Space Grotesk',sans-serif; font-size:clamp(.74rem,.86vw,.88rem); }
+  .flux-copy span{ font-size:clamp(.62rem,.72vw,.74rem); color:var(--muted); }
+  .flux-arrow{ width:14px; height:14px; color:var(--accent); flex:none; }
 
   .bento{
     flex:1;
@@ -365,12 +374,14 @@
     </div>
   </div>
 
-  <footer style="flex:none; text-align:center;">
-    <a href="https://www.instagram.com/scadflux/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
-      Follow along
-    </a>
-  </footer>
+  <a class="flux-strip" href="https://www.instagram.com/scadflux/" target="_blank" rel="noopener">
+    <img src="logo.png" alt="" class="flux-mark">
+    <span class="flux-copy">
+      <strong>@scadflux</strong>
+      <span>Follow FLUX on Instagram</span>
+    </span>
+    <svg class="flux-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg>
+  </a>
 </div>
 </body>
 </html>
