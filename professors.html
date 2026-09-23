@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCAD UXDG Faculty</title>
-
+<title>SCAD UXDG Program</title>
+<meta name="description" content="Faculty, alumni, and awards behind the SCAD UXDG program.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    color-scheme:dark;
-    --bg:#05060f;
-    --panel:#0e1120;
-    --ink:#f4f5ff;
-    --muted:#9aa1c4;
-    --accent:#6b85ff;
-    --yellow:#e8b23d;
-    --green:#4fc98a;
-    --pink:#f28fa8;
-    --border:#22263c;
+    color-scheme:light;
+    --bg:#ffffff;
+    --ink:#15171c;
+    --muted:#6b7080;
+    --accent:#3355ff;
+    --accent-soft:#eef1ff;
+    --yellow:#e8ab3d;
+    --yellow-soft:#fdf3e0;
+    --green:#4caf6d;
+    --green-soft:#e9f7ee;
+    --pink:#ef8aa0;
+    --pink-soft:#fdeaef;
+    --border:#e6e7ec;
   }
 
   *{box-sizing:border-box;}
@@ -29,46 +32,20 @@
     font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
     min-height:100%;
     overflow-x:hidden;
-    position:relative;
   }
 
   .scene{
-    position:relative;
-    min-height:100svh;
-    padding:28px 20px 48px;
-    isolation:isolate;
-  }
-  .scene::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-    background-image:
-      radial-gradient(1.6px 1.6px at 8% 22%, #fff, transparent),
-      radial-gradient(1.2px 1.2px at 22% 68%, #fff, transparent),
-      radial-gradient(1.8px 1.8px at 38% 14%, #fff, transparent),
-      radial-gradient(1.2px 1.2px at 54% 46%, #fff, transparent),
-      radial-gradient(1.5px 1.5px at 70% 78%, #fff, transparent),
-      radial-gradient(1.3px 1.3px at 84% 28%, #fff, transparent),
-      radial-gradient(1.7px 1.7px at 92% 62%, #fff, transparent),
-      radial-gradient(1.1px 1.1px at 14% 88%, #fff, transparent),
-      radial-gradient(1.4px 1.4px at 64% 8%, #fff, transparent),
-      radial-gradient(1.2px 1.2px at 46% 92%, #fff, transparent);
-    background-repeat:repeat;
-    background-size:260px 260px;
-    opacity:.55;
+    max-width:1040px;
+    margin:0 auto;
+    padding:28px 20px 56px;
   }
 
   header{
-    position:relative;
-    z-index:2;
-    max-width:1080px;
-    margin:0 auto 40px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:16px;
+    margin-bottom:44px;
   }
   .back-link{
     display:inline-flex;
@@ -80,19 +57,12 @@
     text-decoration:none;
     transition:color .2s ease;
   }
-  .back-link:hover, .back-link:focus-visible{ color:var(--ink); }
+  .back-link:hover, .back-link:focus-visible{ color:var(--accent); }
   .back-link svg{ width:14px; height:14px; }
 
-  main{
-    position:relative;
-    z-index:2;
-    max-width:1080px;
-    margin:0 auto;
-  }
-
   .hero{
-    max-width:640px;
-    margin:0 auto 40px;
+    max-width:620px;
+    margin:0 auto 56px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -127,86 +97,93 @@
   h1 em{ font-style:normal; color:var(--accent); }
   p.sub{
     margin:0;
-    max-width:46ch;
+    max-width:48ch;
     color:var(--muted);
     font-size:clamp(1rem, 2vw, 1.1rem);
     line-height:1.6;
   }
 
-  .bento{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    grid-auto-rows:150px;
-    gap:14px;
-  }
-  .cell{
-    position:relative;
-    border-radius:20px;
-    border:1px solid var(--border);
-    background:var(--panel);
-    overflow:hidden;
+  section{ margin-bottom:52px; }
+  section:last-of-type{ margin-bottom:0; }
+  .section-head{
     display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    padding:18px;
-    transition:border-color .2s ease, transform .2s ease;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:16px;
   }
-  .cell:hover{ border-color:var(--accent); transform:translateY(-2px); }
-
-  .cell.video{ grid-column:span 2; grid-row:span 2; padding:0; justify-content:flex-end; }
-  .cell.prof-tall{ grid-row:span 2; }
-  .cell.stat{ grid-column:span 2; }
-
-  /* professor card */
-  .prof-avatar{
-    position:absolute;
-    inset:0;
-    display:grid;
-    place-items:center;
+  .section-head h2{
     font-family:'Space Grotesk',sans-serif;
     font-weight:700;
-    font-size:1.6rem;
-    color:rgba(255,255,255,.85);
-  }
-  .cell.c-blue .prof-avatar{ background:linear-gradient(150deg, color-mix(in srgb, var(--accent) 55%, var(--panel)), var(--panel)); }
-  .cell.c-yellow .prof-avatar{ background:linear-gradient(150deg, color-mix(in srgb, var(--yellow) 55%, var(--panel)), var(--panel)); }
-  .cell.c-green .prof-avatar{ background:linear-gradient(150deg, color-mix(in srgb, var(--green) 55%, var(--panel)), var(--panel)); }
-  .cell.c-pink .prof-avatar{ background:linear-gradient(150deg, color-mix(in srgb, var(--pink) 55%, var(--panel)), var(--panel)); }
-
-  .prof-info{ position:relative; z-index:1; }
-  .prof-name{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:1rem;
+    font-size:1.3rem;
     margin:0;
   }
-  .prof-title{
-    font-size:.8rem;
+  .section-head p{
+    margin:0;
+    font-size:.85rem;
     color:var(--muted);
-    margin:2px 0 0;
   }
 
-  /* video / moving-screen placeholder */
-  .video-frame{
-    position:absolute;
-    inset:0;
-    background:#0a0c18;
+  /* generic card */
+  .card{
+    position:relative;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:var(--bg);
+    padding:20px;
+    transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
   }
-  .video-frame .chrome{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:10px 14px;
-    background:#12142450;
-    border-bottom:1px solid var(--border);
+  .card:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+    box-shadow:0 14px 26px -18px color-mix(in srgb, var(--accent) 70%, transparent);
   }
-  .video-frame .dot{ width:8px; height:8px; border-radius:50%; background:#3a3f5c; }
-  .video-frame .sweep{
-    position:absolute;
-    top:38px; left:0; right:0; bottom:0;
+
+  /* stats row */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  .stat-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.6rem, 3.6vw, 2.1rem);
+    margin:0 0 4px;
+    color:var(--accent);
+  }
+  .stat-label{ margin:0; font-size:.92rem; line-height:1.4; }
+  .stat-source{ margin:8px 0 0; font-size:.72rem; color:var(--muted); }
+
+  /* reel card */
+  .reel{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:0;
+    overflow:hidden;
+    padding:0;
+  }
+  .reel-copy{ padding:26px; display:flex; flex-direction:column; justify-content:center; gap:8px; }
+  .reel-copy p.tag{ margin:0; font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+  .reel-copy h3{ margin:0; font-family:'Space Grotesk',sans-serif; font-size:1.2rem; }
+  .reel-copy p.desc{ margin:0; font-size:.9rem; color:var(--muted); line-height:1.5; }
+  .reel-screen{
+    position:relative;
+    min-height:180px;
+    background:#12142a;
+    overflow:hidden;
+  }
+  .reel-screen .chrome{
+    display:flex; align-items:center; gap:6px;
+    padding:9px 12px;
+    background:#1b1e3aaa;
+  }
+  .reel-screen .dot{ width:7px; height:7px; border-radius:50%; background:#3a3f5c; }
+  .reel-screen .sweep{
+    position:absolute; top:32px; left:0; right:0; bottom:0;
     background:
-      linear-gradient(120deg, transparent 30%, rgba(107,133,255,.28) 45%, transparent 60%),
-      repeating-linear-gradient(180deg, #151832 0px, #151832 22px, #191c3a 22px, #191c3a 44px);
+      linear-gradient(120deg, transparent 30%, rgba(107,133,255,.35) 45%, transparent 60%),
+      repeating-linear-gradient(180deg, #1a1d3a 0px, #1a1d3a 20px, #20233f 20px, #20233f 40px);
     background-size:220% 100%, 100% 100%;
     animation:sweep 3.2s ease-in-out infinite;
   }
@@ -215,33 +192,98 @@
     50%{ background-position:-20% 0, 0 -6px; }
     100%{ background-position:120% 0, 0 0; }
   }
-  .video-label{
-    position:relative;
-    z-index:1;
-    padding:16px 18px;
-    background:linear-gradient(180deg, transparent, rgba(5,6,15,.9) 70%);
-  }
-  .video-label p{ margin:0; font-size:.78rem; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; }
-  .video-label strong{ display:block; font-family:'Space Grotesk',sans-serif; font-size:1.1rem; color:var(--ink); margin-top:2px; }
 
-  /* stat cell */
-  .cell.stat{
-    background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, var(--panel)), var(--panel));
+  /* awards */
+  .awards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
   }
-  .stat-num{
+  .award-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
     font-family:'Space Grotesk',sans-serif;
     font-weight:700;
-    font-size:2.2rem;
-    margin:0;
+    font-size:1.05rem;
+    margin:0 0 8px;
   }
-  .stat-label{ margin:2px 0 0; color:var(--muted); font-size:.85rem; }
+  .award-badge svg{ width:20px; height:20px; color:var(--accent); flex:none; }
+  .card.award p{ margin:0; font-size:.9rem; color:var(--muted); line-height:1.55; }
+  .card.award strong{ color:var(--ink); }
+
+  /* faculty grid */
+  .faculty-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  .card.faculty{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; padding:24px 16px; }
+  .avatar{
+    width:64px; height:64px;
+    border-radius:50%;
+    display:grid; place-items:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:1.1rem;
+    color:#fff;
+  }
+  .avatar.c-blue{ background:var(--accent); }
+  .avatar.c-yellow{ background:var(--yellow); }
+  .avatar.c-green{ background:var(--green); }
+  .avatar.c-pink{ background:var(--pink); }
+  .faculty .name{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.98rem; margin:0; }
+  .faculty .title{ margin:0; font-size:.8rem; color:var(--muted); }
+
+  /* alumni grid */
+  .alumni-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  .card.alumni{ display:flex; align-items:center; gap:12px; padding:16px 18px; }
+  .card.alumni .avatar{ width:44px; height:44px; font-size:.85rem; flex:none; }
+  .alumni .name{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.92rem; margin:0; }
+  .alumni .company{ margin:0; font-size:.8rem; color:var(--muted); }
+
+  /* pillars */
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:10px;
+  }
+  .pillar{
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 10px;
+    text-align:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:.85rem;
+    line-height:1.3;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .pillar:nth-child(1){ background:var(--accent-soft); }
+  .pillar:nth-child(2){ background:var(--yellow-soft); }
+  .pillar:nth-child(3){ background:var(--green-soft); }
+  .pillar:nth-child(4){ background:var(--pink-soft); }
+  .pillar:nth-child(5){ background:var(--accent-soft); }
+  .pillar:hover{ border-color:var(--accent); }
+
+  .tagline{
+    text-align:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.1rem, 2.6vw, 1.5rem);
+    color:var(--ink);
+    max-width:36ch;
+    margin:0 auto;
+  }
+  .tagline em{ font-style:normal; color:var(--accent); }
 
   footer{
-    position:relative;
-    z-index:2;
-    max-width:1080px;
-    margin:48px auto 0;
     text-align:center;
+    padding-top:12px;
   }
   footer a{
     display:inline-flex;
@@ -257,16 +299,13 @@
   footer svg{ width:16px; height:16px; }
 
   @media (max-width:760px){
-    .bento{ grid-template-columns:repeat(2, 1fr); grid-auto-rows:130px; }
-    .cell.video{ grid-column:span 2; grid-row:span 2; }
-    .cell.prof-tall{ grid-row:span 1; }
-    .cell.stat{ grid-column:span 2; }
+    .stats{ grid-template-columns:1fr; }
+    .reel{ grid-template-columns:1fr; }
+    .awards{ grid-template-columns:1fr; }
+    .faculty-grid{ grid-template-columns:repeat(2, 1fr); }
+    .alumni-grid{ grid-template-columns:1fr; }
+    .pillars{ grid-template-columns:repeat(2, 1fr); }
   }
-  @media (max-width:460px){
-    .bento{ grid-template-columns:1fr; }
-    .cell.video, .cell.stat{ grid-column:span 1; }
-  }
-
   @media (prefers-reduced-motion: reduce){
     .sweep{ animation:none; }
   }
@@ -282,79 +321,156 @@
     </a>
   </header>
 
-  <main>
-    <div class="hero">
-      <p class="eyebrow">SCAD UXDG Faculty</p>
-      <h1>The people <em>behind the program.</em></h1>
-      <p class="sub">Meet the professors shaping our UX design education.</p>
-    </div>
+  <div class="hero">
+    <p class="eyebrow">SCAD UXDG</p>
+    <h1>Made by students, <em>for students.</em></h1>
+    <p class="sub">The faculty, alumni, and recognition behind our program.</p>
+  </div>
 
-    <div class="bento">
-      <div class="cell video">
-        <div class="video-frame">
-          <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="sweep"></div>
-        </div>
-        <div class="video-label">
-          <p>Reel</p>
-          <strong>Inside the studio &mdash; coming soon</strong>
-        </div>
+  <section>
+    <div class="stats">
+      <div class="card">
+        <p class="stat-num">$96,000</p>
+        <p class="stat-label">Median salary for UX designers with 0&ndash;5 years of experience.</p>
+        <p class="stat-source">U.S. Bureau of Labor Statistics</p>
       </div>
-
-      <div class="cell c-blue">
-        <div class="prof-avatar">P1</div>
-        <div class="prof-info">
-          <p class="prof-name">Professor Name</p>
-          <p class="prof-title">UX Faculty</p>
-        </div>
+      <div class="card">
+        <p class="stat-num">+15,000</p>
+        <p class="stat-label">Job openings for UX designers projected in the US for 2026.</p>
+        <p class="stat-source">U.S. Bureau of Labor Statistics</p>
       </div>
-
-      <div class="cell prof-tall c-yellow">
-        <div class="prof-avatar">P2</div>
-        <div class="prof-info">
-          <p class="prof-name">Professor Name</p>
-          <p class="prof-title">UX Faculty</p>
-        </div>
-      </div>
-
-      <div class="cell c-green">
-        <div class="prof-avatar">P3</div>
-        <div class="prof-info">
-          <p class="prof-name">Professor Name</p>
-          <p class="prof-title">UX Faculty</p>
-        </div>
-      </div>
-
-      <div class="cell c-pink">
-        <div class="prof-avatar">P4</div>
-        <div class="prof-info">
-          <p class="prof-name">Professor Name</p>
-          <p class="prof-title">UX Faculty</p>
-        </div>
-      </div>
-
-      <div class="cell c-blue">
-        <div class="prof-avatar">P5</div>
-        <div class="prof-info">
-          <p class="prof-name">Professor Name</p>
-          <p class="prof-title">UX Faculty</p>
-        </div>
-      </div>
-
-      <div class="cell c-yellow">
-        <div class="prof-avatar">P6</div>
-        <div class="prof-info">
-          <p class="prof-name">Professor Name</p>
-          <p class="prof-title">UX Faculty</p>
-        </div>
-      </div>
-
-      <div class="cell stat">
-        <p class="stat-num">6</p>
-        <p class="stat-label">Professors shaping SCAD UXDG</p>
+      <div class="card">
+        <p class="stat-num">7%</p>
+        <p class="stat-label">Projected employment growth for UX designers, 2024&ndash;2032.</p>
+        <p class="stat-source">U.S. Bureau of Labor Statistics</p>
       </div>
     </div>
-  </main>
+  </section>
+
+  <section>
+    <div class="card reel">
+      <div class="reel-copy">
+        <p class="tag">Reel</p>
+        <h3>Inside the studio</h3>
+        <p class="desc">A look at what we make &mdash; coming soon.</p>
+      </div>
+      <div class="reel-screen">
+        <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="sweep"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Awards</h2>
+    </div>
+    <div class="awards">
+      <div class="card award">
+        <p class="award-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 22l5-3 5 3-1.5-7.5"/></svg>
+          Red Dot Winners, 2025
+        </p>
+        <p>Red Dot is a global product design competition, considered one of the most prestigious in the industry. <strong>Our students' work brought laurels to SCAD this year.</strong></p>
+      </div>
+      <div class="card award">
+        <p class="award-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 22l5-3 5 3-1.5-7.5"/></svg>
+          Indigo Design Winners, 2026
+        </p>
+        <p>Indigo Design Award recognizes excellence in digital design, branding, UX/UI, and creative innovation. <strong>+25 of our projects brought laurels to SCAD this year.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Faculty</h2>
+      <p>The people behind the program</p>
+    </div>
+    <div class="faculty-grid">
+      <div class="card faculty">
+        <div class="avatar c-blue">BH</div>
+        <p class="name">BC Hwang</p>
+        <p class="title">UX Faculty</p>
+      </div>
+      <div class="card faculty">
+        <div class="avatar c-yellow">AC</div>
+        <p class="name">Ascanio Colonna</p>
+        <p class="title">UX Faculty</p>
+      </div>
+      <div class="card faculty">
+        <div class="avatar c-green">CD</div>
+        <p class="name">Clark Delashmet</p>
+        <p class="title">UX Faculty</p>
+      </div>
+      <div class="card faculty">
+        <div class="avatar c-pink">JH</div>
+        <p class="name">Jeannie Harran</p>
+        <p class="title">UX Faculty</p>
+      </div>
+      <div class="card faculty">
+        <div class="avatar c-blue">GD</div>
+        <p class="name">Gustavo Delao</p>
+        <p class="title">UX Faculty</p>
+      </div>
+      <div class="card faculty">
+        <div class="avatar c-yellow">H</div>
+        <p class="name">Hayoung</p>
+        <p class="title">UX Faculty</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Alumni Spotlight</h2>
+      <p>Where our grads landed</p>
+    </div>
+    <div class="alumni-grid">
+      <div class="card alumni">
+        <div class="avatar c-blue">AU</div>
+        <div><p class="name">Avery Ulanet</p><p class="company">shopmy</p></div>
+      </div>
+      <div class="card alumni">
+        <div class="avatar c-yellow">CW</div>
+        <div><p class="name">Corey West</p><p class="company">Walmart</p></div>
+      </div>
+      <div class="card alumni">
+        <div class="avatar c-green">CA</div>
+        <div><p class="name">Chris Archie</p><p class="company">Whirlpool</p></div>
+      </div>
+      <div class="card alumni">
+        <div class="avatar c-pink">LF</div>
+        <div><p class="name">Lucilla Fell</p><p class="company">YouTube</p></div>
+      </div>
+      <div class="card alumni">
+        <div class="avatar c-blue">JK</div>
+        <div><p class="name">Jeffery Kinderdine</p><p class="company">J.P. Morgan</p></div>
+      </div>
+      <div class="card alumni">
+        <div class="avatar c-yellow">CQ</div>
+        <div><p class="name">Chi Quach</p><p class="company">Meta</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Get Involved</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">Workshops</div>
+      <div class="pillar">Mentorship</div>
+      <div class="pillar">Live Panels</div>
+      <div class="pillar">Alumni Talks</div>
+      <div class="pillar">Employer Visits</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="tagline">Good design is all around you &mdash; <em>what will you choose to make?</em></p>
+  </section>
 
   <footer>
     <a href="https://www.instagram.com/scadflux/" target="_blank" rel="noopener">
