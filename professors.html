@@ -80,19 +80,23 @@
   }
 
   .flux-strip{
-    flex:none;
+    position:fixed;
+    z-index:2;
+    top:clamp(12px,2vh,22px);
+    right:clamp(12px,2vw,22px);
     display:flex;
     align-items:center;
-    gap:clamp(8px,1vw,12px);
-    padding:clamp(7px,1vh,10px) clamp(12px,1.4vw,18px);
+    gap:clamp(7px,.8vw,10px);
+    padding:clamp(6px,.8vh,9px) clamp(10px,1.2vw,15px);
     border:1px solid var(--border);
     border-radius:999px;
-    background:var(--accent-soft);
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
     text-decoration:none;
     color:var(--ink);
     transition:border-color .2s ease, transform .2s ease;
     width:fit-content;
-    margin:0 auto;
   }
   .flux-strip:hover, .flux-strip:focus-visible{ border-color:var(--accent); transform:translateY(-2px); }
   .flux-mark{ width:clamp(20px,2vw,26px); height:clamp(20px,2vw,26px); object-fit:contain; flex:none; }
@@ -104,6 +108,7 @@
   .bento{
     flex:1;
     min-height:0;
+    margin-top:clamp(34px,4.6vh,46px);
     display:grid;
     grid-template-columns:repeat(6, 1fr);
     grid-template-rows:repeat(4, 1fr);
